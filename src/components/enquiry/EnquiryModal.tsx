@@ -248,14 +248,19 @@ export default function EnquiryModal({
                     value =
                       value.replace(/[^\d+]/g, '')
 
-                    // Allow only one + at beginning
+                    // Remove all + symbols except first
                     if (value.includes('+')) {
 
                       value =
                         '+' +
-                        value
-                          .replace(/\+/g, '')
-                          .replace(/^\+/, '')
+                        value.replace(/\+/g, '')
+                    }
+
+                    // Prevent + anywhere except beginning
+                    if (
+                      value.lastIndexOf('+') > 0
+                    ) {
+                      return
                     }
 
                     // Limit to 15 digits
