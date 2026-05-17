@@ -1,4 +1,16 @@
-import { getSitemapChunk } from '@/lib/sitemap-utils'
+import { getSitemapChunk, getNumberOfSitemapChunks } from '@/lib/sitemap-utils'
+
+/**
+ * Escape XML special characters
+ */
+function escapeXml(str: string): string {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
 
 export async function GET(
   request: Request,
@@ -28,22 +40,31 @@ export async function GET(
       return new Response('Not Found', { status: 404 })
     }
 
-    const urls = getSitemapChunk(sitemapId)
+    // Check if sitemap exists
+    const chunkCount = getNumberOfSitemapChunks(50000)
+    if (sitemapId > chunkCount) {
+      return new Response('Not Found', { status: 404 })
+    }
+
+    // Get the sitemap chunk
+    const urls = getSitemapChunk(sitemapId, 50000)
 
     // If no URLs found for this chunk, return 404
     if (urls.length === 0) {
       return new Response('Not Found', { status: 404 })
     }
 
-    // Convert to XML format
-    const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(url => `  <url>
-    <loc>${url.url}</loc>
+    // Convert to XML format with proper escaping
+    const urlEntries = urls.map(url => `  <url>
+    <loc>${escapeXml(url.url)}</loc>
     <lastmod>${url.lastModified.toISOString()}</lastmod>
     <changefreq>${url.changeFrequency}</changefreq>
     <priority>${url.priority}</priority>
-  </url>`).join('\n')}
+  </url>`).join('\n')
+
+    const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlEntries}
 </urlset>`
 
     return new Response(sitemapXml, {
@@ -54,7 +75,7 @@ ${urls.map(url => `  <url>
       },
     })
   } catch (error) {
-    console.error('Error generating sitemap:', error)
+    console.error('Error generating sitemap chunk:', error)
     return new Response('Internal Server Error', { status: 500 })
   }
 }
