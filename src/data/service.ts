@@ -500,7 +500,7 @@ export const websiteTypes: SubService[] = [
     {
         "id": 5,
         "title": "Interior Design Website",
-        "logo": "./service/educationwebsite.svg",
+        "logo": "./service/interiorwebsite.svg",
         "features": [
             "Project Showcase",
             "Client Consultation Booking",
@@ -533,7 +533,7 @@ export const websiteTypes: SubService[] = [
     {
         "id": 6,
         "title": "Construction Website",
-        "logo": "./service/educationwebsite.svg",
+        "logo": "./service/constructionwebsite.svg",
         "features": [
             "Project Portfolio",
             "Service Listings",
@@ -566,7 +566,7 @@ export const websiteTypes: SubService[] = [
     {
         "id": 7,
         "title": "Astrology Website",
-        "logo": "./service/educationwebsite.svg",
+        "logo": "./service/astrologywebsite.svg",
         "features": [
             "Horoscope Content",
             "Online Consultation",
@@ -599,7 +599,7 @@ export const websiteTypes: SubService[] = [
     {
         "id": 8,
         "title": "Portfolio Website",
-        "logo": "./service/educationwebsite.svg",
+        "logo": "./service/portfoliowebsite.svg",
         "features": [
             "Project Showcase",
             "Personal Branding",
