@@ -10,6 +10,7 @@ interface Quote {
   name: string
   phone: string
   service: string
+  source: string
   status: 'pending' | 'contacted' | 'completed' | 'archived'
   created_at: string
 }
@@ -122,10 +123,10 @@ const QuoteDashboard = () => {
 
         <div className={styles.content}>
           {loading ? (
-            <Loader 
-              message="Loading quotes..." 
-              type="bars" 
-              size="default" 
+            <Loader
+              message="Loading quotes..."
+              type="bars"
+              size="default"
             />
           ) : filteredQuotes.length === 0 ? (
             <div className={styles.empty}>
@@ -140,6 +141,7 @@ const QuoteDashboard = () => {
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Service</th>
+                    <th>Source</th>
                     <th>Status</th>
                     <th>Date</th>
                     <th>Actions</th>
@@ -151,6 +153,9 @@ const QuoteDashboard = () => {
                       <td className={styles.nameCell}>{quote.name}</td>
                       <td className={styles.phoneCell}>{quote.phone}</td>
                       <td className={styles.serviceCell}>{quote.service}</td>
+                      <td className={styles.sourceCell}>
+                        {quote.source}
+                      </td>
                       <td className={styles.statusCell}>
                         <span className={`${styles.statusBadge} ${styles[quote.status]}`}>
                           {getStatusIcon(quote.status)}
@@ -205,89 +210,89 @@ const QuoteDashboard = () => {
         </div>
       </div>
 
-      
-        {selectedQuote && (
+
+      {selectedQuote && (
+        <div
+          className={styles.modal}
+          onClick={() => setSelectedQuote(null)}
+        >
           <div
-            className={styles.modal}
-            onClick={() => setSelectedQuote(null)}
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
           >
-            <div
-              className={styles.modalContent}
-              onClick={(e) => e.stopPropagation()}
+            <button
+              className={styles.closeModal}
+              onClick={() => setSelectedQuote(null)}
             >
-              <button
-                className={styles.closeModal}
-                onClick={() => setSelectedQuote(null)}
-              >
-                <Close />
-              </button>
-              <h2>Quote Request Details</h2>
-              <div className={styles.modalMeta}>
-                <div className={styles.metaItem}>
-                  <strong>Name:</strong> {selectedQuote.name}
-                </div>
-                <div className={styles.metaItem}>
-                  <strong>Phone:</strong> {selectedQuote.phone}
-                </div>
-                <div className={styles.metaItem}>
-                  <strong>Service:</strong> {selectedQuote.service}
-                </div>
-                <div className={styles.metaItem}>
-                  <strong>Status:</strong>
-                  <span className={`${styles.statusBadge} ${styles[selectedQuote.status]}`}>
-                    {getStatusIcon(selectedQuote.status)}
-                    {selectedQuote.status}
-                  </span>
-                </div>
-                <div className={styles.metaItem}>
-                  <strong>Requested on:</strong>
-                  {new Date(selectedQuote.created_at).toLocaleString()}
-                </div>
+              <Close />
+            </button>
+            <h2>Quote Request Details</h2>
+            <div className={styles.modalMeta}>
+              <div className={styles.metaItem}>
+                <strong>Name:</strong> {selectedQuote.name}
               </div>
-              <div className={styles.modalActions}>
-                <div className={styles.modalActionGroup}>
-                  <label className={styles.modalLabel}>Update Status:</label>
-                  <select
-                    value={selectedQuote.status}
-                    onChange={(e) => updateQuoteStatus(selectedQuote.id, e.target.value as Quote['status'])}
-                    className={styles.modalStatusSelect}
+              <div className={styles.metaItem}>
+                <strong>Phone:</strong> {selectedQuote.phone}
+              </div>
+              <div className={styles.metaItem}>
+                <strong>Service:</strong> {selectedQuote.service}
+              </div>
+              <div className={styles.metaItem}>
+                <strong>Status:</strong>
+                <span className={`${styles.statusBadge} ${styles[selectedQuote.status]}`}>
+                  {getStatusIcon(selectedQuote.status)}
+                  {selectedQuote.status}
+                </span>
+              </div>
+              <div className={styles.metaItem}>
+                <strong>Requested on:</strong>
+                {new Date(selectedQuote.created_at).toLocaleString()}
+              </div>
+            </div>
+            <div className={styles.modalActions}>
+              <div className={styles.modalActionGroup}>
+                <label className={styles.modalLabel}>Update Status:</label>
+                <select
+                  value={selectedQuote.status}
+                  onChange={(e) => updateQuoteStatus(selectedQuote.id, e.target.value as Quote['status'])}
+                  className={styles.modalStatusSelect}
+                >
+                  <option value="pending">Pending</option>
+                  <option value="contacted">Contacted</option>
+                  <option value="completed">Completed</option>
+                  <option value="archived">Archived</option>
+                </select>
+              </div>
+              <div className={styles.modalActionGroup}>
+                <label className={styles.modalLabel}>Quick Actions:</label>
+                <div className={styles.modalQuickActions}>
+                  <a
+                    href={`tel:${selectedQuote.phone}`}
+                    className={styles.actionButtonLarge}
                   >
-                    <option value="pending">Pending</option>
-                    <option value="contacted">Contacted</option>
-                    <option value="completed">Completed</option>
-                    <option value="archived">Archived</option>
-                  </select>
-                </div>
-                <div className={styles.modalActionGroup}>
-                  <label className={styles.modalLabel}>Quick Actions:</label>
-                  <div className={styles.modalQuickActions}>
-                    <a
-                      href={`tel:${selectedQuote.phone}`}
-                      className={styles.actionButtonLarge}
-                    >
-                      <Phone /> Call
-                    </a>
-                    <a
-                      href={`sms:${selectedQuote.phone}`}
-                      className={styles.actionButtonLarge}
-                    >
-                      <Sms /> SMS
-                    </a>
-                    <a
-                      href={`https://wa.me/91${selectedQuote.phone.replace(/[^0-9]/g, '').slice(-10)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.actionButtonLarge}
-                    >
-                      <WhatsApp /> WhatsApp
-                    </a>
-                  </div>
+                    <Phone /> Call
+                  </a>
+                  <a
+                    href={`sms:${selectedQuote.phone}`}
+                    className={styles.actionButtonLarge}
+                  >
+                    <Sms /> SMS
+                  </a>
+                  <a
+                    href={`https://wa.me/91${selectedQuote.phone.replace(/[^0-9]/g, '').slice(-10)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.actionButtonLarge}
+                  >
+                    <WhatsApp /> WhatsApp
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-        )}
-      
+        </div>
+      )}
+
     </div>
   )
 }
