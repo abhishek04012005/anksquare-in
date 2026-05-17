@@ -17,12 +17,12 @@ export const webdevelopment = [
 ]
 
 export const accountmanagement = [
-    { name: 'Amazon', href: '/service/amazon' },
-    { name: 'Flipkart', href: '/service/flipkart' },
-    { name: 'Blinkit', href: '/service/blinkit' },
-    { name: 'Myntra', href: '/service/myntra' },
-    { name: 'Meesho', href: '/service/meesho' },
-    { name: 'Ajio', href: '/service/ajio' },
-    { name: 'JioMart', href: '/service/jiomart' },
-    { name: 'Nykaa', href: '/service/nykaa' }
+    { name: 'Amazon', href: '/service/amazon-account-management' },
+    { name: 'Flipkart', href: '/service/flipkart-account-management' },
+    { name: 'Blinkit', href: '/service/blinkit-account-management' },
+    { name: 'Myntra', href: '/service/myntra-account-management' },
+    { name: 'Meesho', href: '/service/meesho-account-management' },
+    { name: 'Ajio', href: '/service/ajio-account-management' },
+    { name: 'JioMart', href: '/service/jiomart-account-management' },
+    { name: 'Nykaa', href: '/service/nykaa-account-management' }
 ]
