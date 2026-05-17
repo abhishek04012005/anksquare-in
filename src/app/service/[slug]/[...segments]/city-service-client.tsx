@@ -9,6 +9,7 @@ import cityStyles from './city-service.module.css'
 interface City {
   name: string
   state: string
+  country: string
 }
 
 interface Service {
@@ -26,7 +27,7 @@ interface Service {
 
 interface CityServiceClientProps {
   service: Service
-  city: City
+  city: City | null
   citySlug: string
 }
 
@@ -46,14 +47,14 @@ export default function CityServiceClient({ service, city, citySlug }: CityServi
       <a href="#main-content" className="sr-only">Skip to main content</a>
 
       <main id="main-content" role="main">
-        {/* City Service Header */}
+        {/* Service Header - with or without city */}
         <section className={styles.hero}>
           <div className={styles.container}>
             <div className={styles.heroContent}>
-              <div className={cityStyles.locationBadge}>{city.name}, {city.state}</div>
-              <h1 className={styles.title}>{service.title} in {city.name}</h1>
+              {city && <div className={cityStyles.locationBadge}>{city.name}, {city.state}, {city.country}</div>}
+              <h1 className={styles.title}>{city ? `${service.title} in ${city.name}, ${city.state}, ${city.country}` : service.title}</h1>
               <p className={styles.overview}>
-                {service.details.overview} Serving businesses in {city.name} and across {city.state}.
+                {service.details.overview} {city ? `Serving businesses in ${city.name} and across ${city.state}, ${city.country}.` : 'Professional services trusted by businesses worldwide.'}
               </p>
               <div className={styles.heroFeatures}>
                 {service.features.map((feature, index) => (
@@ -63,49 +64,51 @@ export default function CityServiceClient({ service, city, citySlug }: CityServi
                 ))}
               </div>
               <div className={styles.ctaButtons}>
-                <Button variant="primary" onClick={handleEnquiryClick}>Enquiry Now in {city.name}</Button>
+                <Button variant="primary" onClick={handleEnquiryClick}>Enquiry Now{city ? ` in ${city.name}` : ''}</Button>
                 <Button variant="secondary" href={`/service/${service.slug}`}>View All Details</Button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Local Benefits Section */}
-        <section className={cityStyles.localBenefits}>
-          <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Why Choose Us in {city.name}?</h2>
-            <div className={cityStyles.benefitsGrid}>
+        {/* Local Benefits Section - only if city is present */}
+        {city && (
+          <section className={cityStyles.localBenefits}>
+            <div className={styles.container}>
+              <h2 className={styles.sectionTitle}>Why Choose Us in {city.name}?</h2>
+              <div className={cityStyles.benefitsGrid}>
               <div className={cityStyles.benefitCard}>
                 <div className={cityStyles.icon}>
                   <EmojiEvents fontSize="large" />
                 </div>
                 <h3>Local Expertise</h3>
-                <p>Deep understanding of {city.name}'s market dynamics and business ecosystem</p>
+                <p>Deep understanding of {city!.name}'s market dynamics and business ecosystem in {city!.country}</p>
               </div>
               <div className={cityStyles.benefitCard}>
                 <div className={cityStyles.icon}>
                   <Bolt fontSize="large" />
                 </div>
                 <h3>Quick Response</h3>
-                <p>Fast support and on-site assistance for businesses in {city.name}</p>
+                <p>Fast support and on-site assistance for businesses in {city!.name}, {city!.state}</p>
               </div>
               <div className={cityStyles.benefitCard}>
                 <div className={cityStyles.icon}>
                   <Business fontSize="large" />
                 </div>
                 <h3>Proven Track Record</h3>
-                <p>Trusted by 100+ businesses in {city.name} and {city.state}</p>
+                <p>Trusted by 100+ businesses in {city!.name}, {city!.state}, {city!.country}</p>
               </div>
               <div className={cityStyles.benefitCard}>
                 <div className={cityStyles.icon}>
                   <TrackChanges fontSize="large" />
                 </div>
                 <h3>Tailored Solutions</h3>
-                <p>Custom strategies for {city.name} market conditions</p>
+                <p>Custom strategies for {city!.name} market conditions in {city!.country}</p>
               </div>
             </div>
           </div>
         </section>
+        )}
 
         {/* Benefits Section from Service */}
         <section className={styles.benefits}>
@@ -144,7 +147,7 @@ export default function CityServiceClient({ service, city, citySlug }: CityServi
         {service.details.faq.length > 0 && (
           <section className={styles.faq}>
             <div className={styles.container}>
-              <h2 className={styles.sectionTitle}>Frequently Asked Questions about {service.title} in {city.name}</h2>
+              <h2 className={styles.sectionTitle}>Frequently Asked Questions about {service.title}{city ? ` in ${city.name}` : ''}</h2>
               <div className={styles.faqList}>
                 {service.details.faq.map((faq, index) => (
                   <div key={index} className={styles.faqItem}>
@@ -157,20 +160,23 @@ export default function CityServiceClient({ service, city, citySlug }: CityServi
           </section>
         )}
 
-        {/* Location CTA Section */}
+        {/* Location CTA Section - only if city exists */}
+        {city && (
         <section className={cityStyles.locationCta}>
           <div className={styles.container}>
             <h2>Ready to Grow Your Business in {city.name}?</h2>
             <p>
-              Connect with our {service.title} experts in {city.name}. We understand the unique challenges and opportunities in {city.name}, {city.state}.
+              Connect with our {service.title} experts in {city.name}. We understand the unique challenges and opportunities in {city.name}, {city.state}, {city.country}.
             </p>
             <div className={styles.ctaButtons}>
-              <Button variant="primary" onClick={handleEnquiryClick}>Contact Us Today</Button>
+              <Button variant="secondary" onClick={handleEnquiryClick}>Enquiry Now</Button>
             </div>
           </div>
         </section>
+        )}
 
-        {/* Structured Data for Local Service */}
+        {/* Structured Data for Local Service - only if city exists */}
+        {city && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -178,24 +184,24 @@ export default function CityServiceClient({ service, city, citySlug }: CityServi
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
               name: `Ank Square - ${service.title} in ${city.name}`,
-              description: `Professional ${service.title} service in ${city.name}, ${city.state}`,
-              url: `https://www.anksquare.com/service/${service.slug}/${citySlug}`,
+              description: `Professional ${service.title} service in ${city.name}, ${city.state}, ${city.country}`,
+              url: `https://www.anksquare.in/service/${service.slug}/${citySlug}`,
               telephone: '+91-XXXXXXXXXX',
               areaServed: {
                 '@type': 'City',
                 name: city.name,
                 addressRegion: city.state,
-                addressCountry: 'IN'
+                addressCountry: city.country
               },
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: city.name,
                 addressRegion: city.state,
-                addressCountry: 'IN'
+                addressCountry: city.country
               },
               serviceType: service.title,
               priceRange: '$$',
-              image: 'https://www.anksquare.com/logo.svg',
+              image: 'https://www.anksquare.in/logo.svg',
               sameAs: [
                 'https://www.instagram.com/anksquare',
                 'https://www.facebook.com/anksquare'
@@ -203,6 +209,7 @@ export default function CityServiceClient({ service, city, citySlug }: CityServi
             }),
           }}
         />
+        )}
 
         {/* Structured Data for Service */}
         <script
@@ -211,16 +218,18 @@ export default function CityServiceClient({ service, city, citySlug }: CityServi
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Service',
-              name: `${service.title} in ${city.name}`,
+              name: `${service.title}${city ? ` in ${city.name}` : ''}`,
               description: service.details.overview,
-              areaServed: {
-                '@type': 'City',
-                name: city.name
-              },
+              ...(city && {
+                areaServed: {
+                  '@type': 'City',
+                  name: city.name
+                }
+              }),
               provider: {
                 '@type': 'Organization',
                 name: 'Ank Square',
-                url: 'https://www.anksquare.com'
+                url: 'https://www.anksquare.in'
               },
               serviceType: service.title,
               ...(service.details.pricing.length > 0 && {

@@ -1,15 +1,14 @@
 /* City Service Page Styles */
 
 .locationBadge {
+  color: white;
+  background-color: var(--primary-color);
   display: inline-block;
-  background: var(--accent-light);
-  color: var(--primary-color);
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
-  animation: slideDown 0.5s ease-out;
+  margin-bottom: 1.5rem;  
 }
 
 @keyframes slideDown {

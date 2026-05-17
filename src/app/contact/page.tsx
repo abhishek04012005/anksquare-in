@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Ank Square - Digital Services Support',
     description: 'Get in touch with our team for digital solutions. Quick response time and personalized service.',
-    url: 'https://www.anksquare.com/contact',
+    url: 'https://www.anksquare.in/contact',
     type: 'website',
   },
   twitter: {
@@ -36,11 +36,11 @@ export default function ContactPage() {
               '@type': 'ContactPage',
               name: 'Ank Square - Contact Us',
               description: 'Contact form and information for Ank Square digital service company',
-              url: 'https://www.anksquare.com/contact',
+              url: 'https://www.anksquare.in/contact',
               mainEntity: {
                 '@type': 'Organization',
                 name: 'Ank Square',
-                url: 'https://www.anksquare.com',
+                url: 'https://www.anksquare.in',
                 contactPoint: {
                   '@type': 'ContactPoint',
                   telephone: '+91-9939337638',

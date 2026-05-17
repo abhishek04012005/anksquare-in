@@ -14,7 +14,7 @@ export interface SitemapUrl {
  * Generate all sitemap URLs for the website
  */
 export function generateAllSitemapUrls(): SitemapUrl[] {
-  const baseUrl = 'https://www.anksquare.com'
+  const baseUrl = 'https://www.anksquare.in'
 
   // Static pages
   const staticPages: SitemapUrl[] = [

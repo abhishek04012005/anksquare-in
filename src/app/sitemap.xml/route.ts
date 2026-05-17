@@ -31,7 +31,7 @@ ${chunks[0].map(url => `  <url>
     }
     
     // If multiple chunks, return sitemap index
-    const baseUrl = 'https://www.anksquare.com'
+    const baseUrl = 'https://www.anksquare.in'
     const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${Array.from({ length: chunks.length }, (_, index) => `  <sitemap>

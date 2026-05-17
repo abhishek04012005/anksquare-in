@@ -14,7 +14,7 @@ interface MainServiceComponentProps {
     isReversed: boolean;
 }
 
-const MainService = ({ service, isReversed }: MainServiceComponentProps) => {
+const MainService = ({  service, isReversed }: MainServiceComponentProps) => {
     const router = useRouter()
 
     const handleEnquiryClick = () => {
@@ -103,7 +103,7 @@ const Services = () => {
                     titleHighlight="Digital Expertise"
                 />
 
-                  {mainServices.map((service, index) => (
+                {mainServices.map((service, index) => (
                     <div key={service.id} className={styles.serviceBlock}>
                         <MainService
                             service={service}
@@ -112,9 +112,9 @@ const Services = () => {
 
                         <div className={styles.subServices}>
                             <h2 className={styles.subTitle}>
-                                {index === 0 ? 'Marketplace Solutions' : 
-                                 index === 1 ? 'Website Solutions' : 
-                                 'Digital Marketing Solutions'}
+                                {index === 0 ? 'Marketplace Solutions' :
+                                    index === 1 ? 'Website Solutions' :
+                                        'Digital Marketing Solutions'}
                             </h2>
                             <div className={styles.cardGrid}>
                                 {index === 0
@@ -122,12 +122,12 @@ const Services = () => {
                                         <SubServiceCard key={service.id} service={service} />
                                     ))
                                     : index === 1
-                                    ? websiteTypes.map(service => (
-                                        <SubServiceCard key={service.id} service={service} />
-                                    ))
-                                    : digitalMarketingTypes.map(service => (
-                                        <SubServiceCard key={service.id} service={service} />
-                                    ))
+                                        ? websiteTypes.map(service => (
+                                            <SubServiceCard key={service.id} service={service} />
+                                        ))
+                                        : digitalMarketingTypes.map(service => (
+                                            <SubServiceCard key={service.id} service={service} />
+                                        ))
                                 }
                             </div>
                         </div>

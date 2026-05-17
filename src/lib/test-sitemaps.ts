@@ -29,9 +29,9 @@ async function testSitemaps() {
   })
   
   console.log(`\n✨ Sitemaps are ready to be served at:`)
-  console.log(`   - https://www.anksquare.com/sitemap.xml (index)`)
+  console.log(`   - https://www.anksquare.in/sitemap.xml (index)`)
   for (let i = 1; i <= numberOfChunks; i++) {
-    console.log(`   - https://www.anksquare.com/sitemap-${i}.xml`)
+    console.log(`   - https://www.anksquare.in/sitemap-${i}.xml`)
   }
 }
 

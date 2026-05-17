@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { marketplaceServices, websiteTypes, digitalMarketingTypes, mainServices } from '@/data/service'
 import ServiceDetailClient from './service-detail-client'
+import { extractServiceModifier, getModifiedServiceTitle } from '@/seo/serviceModifiers'
 import styles from './service-detail.module.css'
 
 interface Props {
@@ -31,7 +32,8 @@ const allServices = [
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params
-  const service = allServices.find(s => s.slug === resolvedParams.slug)
+  const { modifier, serviceSlug } = extractServiceModifier(resolvedParams.slug)
+  const service = allServices.find(s => s.slug === serviceSlug)
 
   if (!service) {
     return {
@@ -40,14 +42,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
+  const modifiedTitle = getModifiedServiceTitle(service.title, modifier)
+
   return {
-    title: `${service.title} Services - Professional Solutions by Ank Square`,
-    description: `Expert ${service.title} service for businesses. ${service.details.overview} Professional implementation with proven results.`,
-    keywords: `${service.title}, ${service.title} service, e-commerce solutions, digital marketing, web development, Ank Square`,
+    title: `${modifiedTitle} Services - Professional Solutions by Ank Square`,
+    description: `Expert ${modifiedTitle} service for businesses. ${service.details.overview} Professional implementation with proven results.`,
+    keywords: `${modifiedTitle}, ${modifiedTitle} service, e-commerce solutions, digital marketing, web development, Ank Square`,
     openGraph: {
-      title: `${service.title} Services - Ank Square`,
+      title: `${modifiedTitle} Services - Ank Square`,
       description: service.details.overview,
-      url: `https://www.anksquare.com/service/${service.slug}`,
+      url: `https://www.anksquare.in/service/${resolvedParams.slug}`,
       type: 'website',
     },
     twitter: {
@@ -67,15 +71,18 @@ export const dynamicParams = true
 
 export default async function ServiceDetailPage({ params }: Props) {
   const resolvedParams = await params
-  const service = allServices.find(s => s.slug === resolvedParams.slug)
+  const { modifier, serviceSlug } = extractServiceModifier(resolvedParams.slug)
+  const service = allServices.find(s => s.slug === serviceSlug)
 
   if (!service) {
     notFound()
   }
 
+  const modifiedTitle = getModifiedServiceTitle(service.title, modifier)
+
   // Create a serializable version of the service without functions
   const serializableService = {
-    title: service.title,
+    title: modifiedTitle,
     slug: service.slug,
     features: service.features,
     details: service.details

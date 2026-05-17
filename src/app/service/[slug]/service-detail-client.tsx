@@ -42,7 +42,7 @@ export default function ServiceDetailClient({ service }: ServiceDetailClientProp
           <div className={styles.container}>
             <div className={styles.heroContent}>
               <span className={styles.heroBadge}>Professional Digital Service</span>
-              <h1 className={styles.title}>{service.title} Services</h1>
+              <h1 className={styles.title}>{service.title} Service</h1>
               <p className={styles.overview}>{service.details.overview}</p>
               <div className={styles.heroFeatures}>
                 {service.features.map((feature, index) => (
@@ -152,7 +152,7 @@ export default function ServiceDetailClient({ service }: ServiceDetailClientProp
               provider: {
                 '@type': 'Organization',
                 name: 'Ank Square',
-                url: 'https://www.anksquare.com'
+                url: 'https://www.anksquare.in'
               },
               serviceType: service.title,
               ...(service.details.pricing.length > 0 && {

@@ -98,15 +98,15 @@ export const mainServices: MainServiceProps[] = [
 export const marketplaceServices: SubService[] = [
     {
         id: 1,
-        title: 'Amazon',
+        title: 'Amazon Account Management',
         logo: "./service/amazon.png",
         features: [
             'Account Setup & Verification',
             'Product Listing Optimization',
             'PPC Campaign Management',
         ],
-        path: '/amazon',
-        slug: 'amazon',
+        path: '/amazon-account-management',
+        slug: 'amazon-account-management',
         details: {
             overview: 'Our Amazon marketplace management service helps businesses establish and grow their presence on the world\'s largest e-commerce platform.',
             benefits: [
@@ -131,15 +131,15 @@ export const marketplaceServices: SubService[] = [
     },
     {
         id: 2,
-        title: 'Flipkart',
+        title: 'Flipkart Account Management',
         logo: "./service/flipkart.png",
         features: [
             'Seller Registration & KYC',
             'Catalog Management',
             'Promotions & Campaigns',
         ],
-        path: '/flipkart',
-        slug: 'flipkart',
+        path: '/flipkart-account-management',
+        slug: 'flipkart-account-management',
         details: {
             overview: 'Our Flipkart service helps sellers onboard quickly and optimize their presence on India\'s leading marketplace.',
             benefits: [
@@ -164,15 +164,15 @@ export const marketplaceServices: SubService[] = [
     },
     {
         id: 3,
-        title: 'Blinkit',
+        title: 'Blinkit Account Management',
         logo: "./service/blinkit.png",
         features: [
             'Quick Commerce Integration',
             'Inventory Syncing',
             'Geo-targeted Listings',
         ],
-        path: '/blinkit',
-        slug: 'blinkit',
+        path: '/blinkit-account-management',
+        slug: 'blinkit-account-management',
         details: {
             overview: 'Our Blinkit service helps brands tap into hyperlocal delivery with optimized quick commerce strategies.',
             benefits: [
@@ -197,15 +197,15 @@ export const marketplaceServices: SubService[] = [
     },
     {
         id: 4,
-        title: 'Myntra',
+        title: 'Myntra Account Management',
         logo: "./service/myntra.png",
         features: [
             'Fashion Product Onboarding',
             'Brand Store Setup',
             'Seasonal Campaign Strategy',
         ],
-        path: '/myntra',
-        slug: 'myntra',
+        path: '/myntra-account-management',
+        slug: 'myntra-account-management',
         details: {
             overview: 'Our Myntra service helps fashion brands create premium storefronts and run seasonal campaigns effectively.',
             benefits: [
@@ -230,15 +230,15 @@ export const marketplaceServices: SubService[] = [
     },
     {
         id: 5,
-        title: 'Meesho',
+        title: 'Meesho Account Management',
         logo: "./service/meesho.png",
         features: [
             'Reseller-Friendly Listings',
             'Bulk Upload Assistance',
             'Promotions & Campaigns',
         ],
-        path: '/meesho',
-        slug: 'meesho',
+        path: '/meesho-account-management',
+        slug: 'meesho-account-management',
         details: {
             overview: 'Our Meesho service empowers sellers to reach resellers and consumers through simplified onboarding and logistics.',
             benefits: [
@@ -263,15 +263,15 @@ export const marketplaceServices: SubService[] = [
     },
     {
         id: 6,
-        title: 'Ajio',
+        title: 'Ajio Account Management',
         logo: "./service/ajio.png",
         features: [
             'Premium Fashion Onboarding',
             'Brand Guidelines Compliance',
             'Pricing & Discount Strategy',
         ],
-        path: '/ajio',
-        slug: 'ajio',
+        path: '/ajio-account-management',
+        slug: 'ajio-account-management',
         details: {
             overview: 'Ajio is a premium fashion marketplace, and our service ensures your brand meets its high standards while maximizing visibility and conversions.',
             benefits: [
@@ -296,15 +296,15 @@ export const marketplaceServices: SubService[] = [
     },
     {
         id: 7,
-        title: 'JioMart',
+        title: 'JioMart Account Management',
         logo: "./service/jiomart.png",
         features: [
             'Grocery & FMCG Listings',
             'Vendor Portal Setup',
             'Order Fulfillment Support',
         ],
-        path: '/jiomart',
-        slug: 'jiomart',
+        path: '/jiomart-account-management',
+        slug: 'jiomart-account-management',
         details: {
             overview: 'Our JioMart service helps FMCG and grocery sellers onboard efficiently and manage high-volume operations with ease.',
             benefits: [
@@ -329,15 +329,15 @@ export const marketplaceServices: SubService[] = [
     },
     {
         id: 8,
-        title: 'Nykaa',
+        title: 'Nykaa Account Management',
         logo: "./service/nykaa.png",
         features: [
             'Beauty Product Onboarding',
             'Brand Page Design',
             'Influencer Campaign Coordination',
         ],
-        path: '/nykaa',
-        slug: 'nykaa',
+        path: '/nykaa-account-management',
+        slug: 'nykaa-account-management',
         details: {
             overview: 'Nykaa is India’s leading beauty marketplace, and our service helps you launch, brand, and promote your products with style and precision.',
             benefits: [

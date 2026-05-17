@@ -20,7 +20,7 @@ export function generateSEO(props: SEOProps): Metadata {
     description = "Transform your business with Ank Square's expert digital service. We specialize in merchant account management, website development, and digital marketing solutions.",
     keywords = ["digital service", "merchant account management", "website development", "digital marketing"],
     image = "/og-image.jpg",
-    url = "https://www.anksquare.com",
+    url = "https://www.anksquare.in",
     type = "website",
     author,
     section,

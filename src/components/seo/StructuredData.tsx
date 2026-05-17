@@ -6,8 +6,8 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": details.profile.nameCompany,
-    "url": "https://www.anksquare.com",
-    "logo": "https://www.anksquare.com/logo.svg",
+    "url": "https://www.anksquare.in",
+    "logo": "https://www.anksquare.in/logo.svg",
     "description": details.about.missionStatement,
     "founder": {
       "@type": "Person",
@@ -31,7 +31,7 @@ export default function StructuredData() {
     "@type": "LocalBusiness",
     "name": details.profile.nameCompany,
     "description": details.about.missionStatement,
-    "url": "https://www.anksquare.com",
+    "url": "https://www.anksquare.in",
     "telephone": details.social.phone,
     "email": details.social.email,
     "address": {
@@ -94,7 +94,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": details.profile.nameCompany,
-    "url": "https://www.anksquare.com",
+    "url": "https://www.anksquare.in",
     "description": details.about.missionStatement,
     "publisher": {
       "@type": "Organization",
@@ -102,7 +102,7 @@ export default function StructuredData() {
     },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.anksquare.com/search?q={search_term_string}",
+      "target": "https://www.anksquare.in/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

@@ -37,7 +37,7 @@ export const clients: Client[] = [
         title: 'Responsive Corporate Portfolio Website',
         description: 'Fully responsive website designed to showcase Sharma Interiors\' portfolio and expertise. Features an interactive project gallery, client testimonials section, service descriptions, and seamless navigation. Built with modern web technologies for optimal performance and search engine visibility.',
         images: ["/sharma-interiors/website.png"],
-        url: 'https://abhishek04012005.github.io/interiorssharma/',
+        url: 'https://interiorssharma.com/',
       },
       // {
       //   type: 'visitingCard',

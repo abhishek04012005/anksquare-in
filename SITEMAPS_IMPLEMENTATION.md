@@ -21,13 +21,13 @@ Your website has been converted from a single sitemap to a multi-sitemap structu
 ### Available Endpoints
 
 1. **Sitemap Index (Primary)**
-   - `https://www.anksquare.com/sitemap.xml` - Returns XML sitemap index
-   - `https://www.anksquare.com/sitemap-index` - Alternative sitemap index endpoint
+   - `https://www.anksquare.in/sitemap.xml` - Returns XML sitemap index
+   - `https://www.anksquare.in/sitemap-index` - Alternative sitemap index endpoint
 
 2. **Individual Sitemaps**
-   - `https://www.anksquare.com/sitemap-1.xml` - First chunk of URLs (up to 50,000)
-   - `https://www.anksquare.com/sitemap-2.xml` - Second chunk of URLs (up to 50,000)
-   - `https://www.anksquare.com/sitemap-N.xml` - Nth chunk of URLs (dynamically generated)
+   - `https://www.anksquare.in/sitemap-1.xml` - First chunk of URLs (up to 50,000)
+   - `https://www.anksquare.in/sitemap-2.xml` - Second chunk of URLs (up to 50,000)
+   - `https://www.anksquare.in/sitemap-N.xml` - Nth chunk of URLs (dynamically generated)
 
 ### Sitemap Structure
 
@@ -126,19 +126,19 @@ git push
 3. Navigate to Sitemaps section
 4. Remove old `/sitemap.xml` if previously submitted
 5. Submit new sitemaps:
-   - `https://www.anksquare.com/sitemap.xml` (sitemap index)
-   - OR submit individual sitemaps: `https://www.anksquare.com/sitemap-1.xml`, etc.
+   - `https://www.anksquare.in/sitemap.xml` (sitemap index)
+   - OR submit individual sitemaps: `https://www.anksquare.in/sitemap-1.xml`, etc.
 
 **Bing Webmaster Tools:**
 1. Go to https://www.bing.com/webmaster
 2. Select your site
 3. Go to Sitemaps section
-4. Add sitemap: `https://www.anksquare.com/sitemap.xml`
+4. Add sitemap: `https://www.anksquare.in/sitemap.xml`
 
 ### 3. Verify Robots.txt
 The robots.txt has been updated with:
 ```
-Sitemap: https://www.anksquare.com/sitemap-index
+Sitemap: https://www.anksquare.in/sitemap-index
 ```
 
 ## Testing
@@ -147,13 +147,13 @@ Sitemap: https://www.anksquare.com/sitemap-index
 
 ```bash
 # Test sitemap index
-curl -I https://www.anksquare.com/sitemap.xml
+curl -I https://www.anksquare.in/sitemap.xml
 
 # Test first sitemap
-curl -I https://www.anksquare.com/sitemap-1.xml
+curl -I https://www.anksquare.in/sitemap-1.xml
 
 # Test second sitemap
-curl -I https://www.anksquare.com/sitemap-2.xml
+curl -I https://www.anksquare.in/sitemap-2.xml
 
 # Verify sitemap validity
 # Use: https://www.xml-sitemaps.com/validate-xml-sitemap.html

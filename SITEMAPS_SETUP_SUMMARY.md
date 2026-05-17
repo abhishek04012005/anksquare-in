@@ -55,10 +55,10 @@ TOTAL URLS             ~53,000+    Split across 2 sitemaps
 
 ### Production URLs
 
-- `https://www.anksquare.com/sitemap.xml` - Sitemap Index (Primary)
-- `https://www.anksquare.com/sitemap/1.xml` - Sitemap 1 (URLs 1-50,000)
-- `https://www.anksquare.com/sitemap/2.xml` - Sitemap 2 (URLs 50,001-54,538)
-- `https://www.anksquare.com/sitemap-index` - Alternative index
+- `https://www.anksquare.in/sitemap.xml` - Sitemap Index (Primary)
+- `https://www.anksquare.in/sitemap/1.xml` - Sitemap 1 (URLs 1-50,000)
+- `https://www.anksquare.in/sitemap/2.xml` - Sitemap 2 (URLs 50,001-54,538)
+- `https://www.anksquare.in/sitemap-index` - Alternative index
 
 ### Local Development URLs
 
@@ -73,12 +73,12 @@ TOTAL URLS             ~53,000+    Split across 2 sitemaps
 
 1. **Google Search Console**
    - Go to https://search.google.com/search-console
-   - Submit: `https://www.anksquare.com/sitemap.xml`
+   - Submit: `https://www.anksquare.in/sitemap.xml`
    - Google will automatically discover all sitemaps from the index
 
 2. **Bing Webmaster Tools**
    - Go to https://www.bing.com/webmaster
-   - Submit: `https://www.anksquare.com/sitemap.xml`
+   - Submit: `https://www.anksquare.in/sitemap.xml`
 
 3. **robots.txt**
    - Already configured to point crawlers to sitemap index
@@ -88,11 +88,11 @@ TOTAL URLS             ~53,000+    Split across 2 sitemaps
 
 ```bash
 # Test sitemap index
-curl https://www.anksquare.com/sitemap.xml
+curl https://www.anksquare.in/sitemap.xml
 
 # Test individual sitemaps
-curl https://www.anksquare.com/sitemap-1.xml
-curl https://www.anksquare.com/sitemap-2.xml
+curl https://www.anksquare.in/sitemap-1.xml
+curl https://www.anksquare.in/sitemap-2.xml
 
 # Validate XML
 # Use: https://www.xml-sitemaps.com/validate-xml-sitemap.html

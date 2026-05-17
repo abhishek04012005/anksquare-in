@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Terms & Conditions - Ank Square',
     description: 'Legal terms and conditions for Ank Square digital service and client agreements.',
-    url: 'https://www.anksquare.com/terms-and-conditions',
+    url: 'https://www.anksquare.in/terms-and-conditions',
     type: 'website',
   },
   twitter: {
@@ -143,11 +143,11 @@ export default function TermsAndConditionsPage() {
               '@type': 'WebPage',
               name: 'Terms & Conditions - Ank Square',
               description: 'Legal terms and conditions for Ank Square digital service',
-              url: 'https://www.anksquare.com/terms-and-conditions',
+              url: 'https://www.anksquare.in/terms-and-conditions',
               mainEntity: {
                 '@type': 'Organization',
                 name: 'Ank Square',
-                url: 'https://www.anksquare.com',
+                url: 'https://www.anksquare.in',
                 contactPoint: {
                   '@type': 'ContactPoint',
                   email: contact.email,

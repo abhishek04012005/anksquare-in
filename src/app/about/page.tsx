@@ -5,7 +5,7 @@ import { details } from '@/data/details';
 
 export const metadata: Metadata = generateSEO({
   ...seoConfigs.about,
-  url: 'https://www.anksquare.com/about',
+  url: 'https://www.anksquare.in/about',
   image: '/og-image-about.jpg',
 });
 
@@ -15,7 +15,7 @@ const aboutPageSchema = {
   "@type": "AboutPage",
   "name": "About Ank Square - Digital Services Expert",
   "description": details.about.missionStatement,
-  "url": "https://www.anksquare.com/about",
+  "url": "https://www.anksquare.in/about",
   "mainEntity": {
     "@type": "Organization",
     "name": details.profile.nameCompany,
@@ -27,7 +27,7 @@ const aboutPageSchema = {
       "description": details.about.shortBio
     },
     "foundingDate": "2019", // Based on 5+ years experience
-    "url": "https://www.anksquare.com",
+    "url": "https://www.anksquare.in",
     "sameAs": [
       details.social.instagram,
       details.social.pinterest,
@@ -41,13 +41,13 @@ const aboutPageSchema = {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.anksquare.com"
+        "item": "https://www.anksquare.in"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "About",
-        "item": "https://www.anksquare.com/about"
+        "item": "https://www.anksquare.in/about"
       }
     ]
   }

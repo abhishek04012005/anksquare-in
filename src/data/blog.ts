@@ -18,15 +18,15 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
-    title: "The Future of Digital Marketing in 2025",
+    title: "The Future of Digital Marketing",
     excerpt: "Explore the emerging trends, AI tools, and consumer behaviors that will shape digital marketing in the coming years.",
-    content: "Digital marketing is evolving rapidly with AI, voice search, and hyper-personalization leading the way. In 2025, brands will need to focus on data-driven strategies, immersive content, and seamless customer journeys to stay competitive.",
+    content: "Digital marketing is evolving rapidly with AI, voice search, and hyper-personalization leading the way. In future, brands will need to focus on data-driven strategies, immersive content, and seamless customer journeys to stay competitive.",
     image: "/assets/blog/blog1.jpg",
     author: "Mukesh Kumar",
     date: "2025-01-15",
     readTime: "28 min read",
     category: "Digital Marketing",
-    slug: "future-of-digital-marketing-2025",
+    slug: "future-of-digital-marketing",
     sections: [
       {
         subtitle: "The Rise of Artificial Intelligence in Marketing",

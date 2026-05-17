@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Our Services - Complete Digital Solutions | Ank Square',
     description: 'Professional e-commerce account management, custom website development, and comprehensive digital marketing service for growing businesses.',
-    url: 'https://www.anksquare.com/service',
+    url: 'https://www.anksquare.in/service',
     type: 'website',
   },
   twitter: {
@@ -36,11 +36,11 @@ export default function ServicesPage() {
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'Ank Square',
-              url: 'https://www.anksquare.com',
+              url: 'https://www.anksquare.in',
               description: 'Leading digital service company providing e-commerce account management, website development, and digital marketing solutions for businesses in India',
               serviceType: ['E-commerce Management', 'Web Development', 'Digital Marketing'],
               areaServed: 'India',
-              logo: 'https://www.anksquare.com/logo.svg',
+              logo: 'https://www.anksquare.in/logo.svg',
               contactPoint: {
                 '@type': 'ContactPoint',
                 telephone: '+91-XXXXXXXXXX',

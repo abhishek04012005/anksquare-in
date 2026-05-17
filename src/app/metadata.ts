@@ -71,7 +71,7 @@ export const homepageMetadata: Metadata = {
   openGraph: {
     title: 'Ank Square Private Limited– Web Development & Merchant Account Management Services for Your Business Growth',
     description: 'Expert merchant account management, custom website development, and digital marketing solutions. 500+ projects completed with 300+ happy clients.',
-    url: 'https://www.anksquare.com',
+    url: 'https://www.anksquare.in',
     siteName: 'Ank Square Private Limited',
     type: 'website',
     locale: 'en_US',
