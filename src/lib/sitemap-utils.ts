@@ -84,11 +84,8 @@ export function* generateSitemapUrlsGenerator(): Generator<SitemapUrl> {
     }
   }
 
-  // Services that have city pages: all except merchant-management and web-development
-  const servicesWithCityPages = allServices.filter(service => {
-    const slug = service.slug
-    return slug !== 'merchant-management' && slug !== 'web-development'
-  })
+  // Services that have city pages: all services now included
+  const servicesWithCityPages = allServices
 
   // Generate city pages with modifiers
   for (const service of servicesWithCityPages) {
