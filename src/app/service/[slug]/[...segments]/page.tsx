@@ -45,7 +45,8 @@ const allServices = [
   }))
 ]
 
-// India-only services
+// India-only services - these services can only be accessed from India
+// Full service slugs that are restricted to India only
 const indiaOnlyServices = [
   'flipkart-account-management',
   'blinkit-account-management',

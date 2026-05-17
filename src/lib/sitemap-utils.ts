@@ -19,15 +19,16 @@ const PRIORITY_MODIFIERS = ['best', 'premium', 'leading', 'trusted', 'profession
 
 /**
  * India-only services (cannot be used with non-India cities)
+ * Only generate URLs for these services when city.country === 'India'
  */
 const INDIA_ONLY_SERVICE_SLUGS = new Set([
-  'flipkart',
-  'blinkit',
-  'myntra',
-  'ajio',
-  'jiomart',
-  'meesho',
-  'nykaa'
+  'flipkart-account-management',
+  'blinkit-account-management',
+  'myntra-account-management',
+  'ajio-account-management',
+  'jiomart-account-management',
+  'meesho-account-management',
+  'nykaa-account-management'
 ])
 
 /**
